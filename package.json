@@ -1,0 +1,68 @@
+{
+    "name": "chat-sample",
+    "publisher": "vscode-samples",
+    "displayName": "Copilot Chat Sample",
+    "description": "SQL expertises for copilot chat",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/vscode-extension-samples"
+    },
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "AI",
+        "Chat"
+    ],
+    "activationEvents": [
+    ],
+    "enabledApiProposals": [
+        "chatVariableResolver"
+    ],
+    "extensionDependencies": [
+        "github.Copilot-chat",
+        "ms-mssql.mssql"
+    ],
+    "contributes": {
+        "chatParticipants": [
+            {
+                "id": "vscode-mssql-chat",
+                "fullName": "mssql",
+                "name": "mssql",
+                "description": "Generate SQL queries from natural languange",
+                "isSticky": true,
+                "commands": [
+                    {
+                        "name": "getDatabaseDetails",
+                        "description": "Providing database details to you"
+                    },
+                    {
+                        "name": "explainQuery",
+                        "description": "Explaining the SQL query from previous response"
+                    }
+                ]
+            }
+        ]
+        
+    },
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/mssql": "^9.1.5",
+        "@types/node": "^20.5.9",
+        "@types/vscode": "1.90.0",
+        "@vscode/prompt-tsx": "^0.2.3-alpha",
+        "eslint": "^7.22.0",
+        "run-script-os": "^1.1.6",
+        "tslint": "^6.1.3",
+        "typescript": "^4.0.3"
+    },
+    "dependencies": {
+        "mssql": "^11.0.0"
+    }
+}

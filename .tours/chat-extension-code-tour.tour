@@ -1,0 +1,39 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Chat extension code tour",
+  "steps": [
+    {
+      "file": "package.json",
+      "description": "First step to create a chat extension is to register it in the package.json with individual id, name and description",
+      "line": 28,
+      "title": "Register Chat participant"
+    },
+    {
+      "file": "src/extension.ts",
+      "description": "Next step is to create the chat participant and chat handler. Here you connect it to the registered extension in the package.json. Then you would create the request and select the desired model",
+      "line": 13,
+      "title": "Create chat participant and handler"
+    },
+    {
+      "file": "package.json",
+      "description": "Here you can register the commands which will then be invoked in the chat by \"/\". The commands make the chat experience more specialized as well as personalized",
+      "line": 35,
+      "title": "Add Commands"
+    },
+    {
+      "file": "src/extension.ts",
+      "description": "If the user invokes the command \"/getDatabaseDetails\", the function calles a method from utils.ts that returns the overall context from the database base executing a select all SQL query, we then send a request to the model with the database context and the prompt to provide a short description.",
+      "line": 49
+    },
+    {
+      "file": "src/extension.ts",
+      "description": "If the user has selected the command \"/explainQuery\" the we check if the last response was a sql code, by saving each repsonse, if it contains SQL code, in a constant called last_sql_query. We then send a new request to the model with the last_sql_query and the prompt to explain it in a more simple manner",
+      "line": 23
+    },
+    {
+      "file": "src/extension.ts",
+      "description": "If the user did not invoke any command or has eneterd a request, the chat will repsond with a random SQL query.",
+      "line": 70
+    }
+  ]
+}
