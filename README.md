@@ -1,5 +1,7 @@
 # Chat Example
 
+Offical docu + example demo: https://code.visualstudio.com/api/extension-guides/chat
+
 This sample shows
 
 - How to contribute a chat participant.
